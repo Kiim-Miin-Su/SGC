@@ -30,7 +30,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Application definition
-
+LOGIN_URL = '/log_in/'
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
