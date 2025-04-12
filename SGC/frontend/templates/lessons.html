@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}강좌 목록{% endblock %}
+
+{% block content %}
+{% with page_type='lessons' %}
+    {% include "includes/filter_form.html" %}
+{% endwith %}
+
+<ul class="lecture-list">
+  {% for lesson in items %}
+  <li>
+    <a href="{% url 'lesson_detail' lesson.id %}" style="color: inherit; text-decoration: none;">
+      <h3>{{ lesson.title }}</h3>
+      <p>{{ lesson.description }}</p>
+      <p><strong>{{ lesson.price|intcomma }}원</strong></p>
+    </a>
+  </li>
+  {% empty %}
+  <li>등록된 강좌가 없습니다.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

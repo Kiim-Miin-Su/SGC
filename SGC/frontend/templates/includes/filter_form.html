@@ -1,0 +1,98 @@
+<!-- frontend/templates/includes/filter_form.html -->
+<form method="get" class="filter-form">
+  {% if page_type == "lessons" %}
+  <label>
+    지역
+    <select name="region">
+      <option value="">전체</option>
+      <option value="서울">서울</option>
+      <option value="부산">부산</option>
+    </select>
+  </label>
+  <label>
+    수업 방식
+    <select name="method">
+      <option value="">전체</option>
+      <option value="온라인">온라인</option>
+      <option value="오프라인">오프라인</option>
+    </select>
+  </label>
+  <label>
+    가격
+    <select name="price">
+      <option value="">전체</option>
+      <option value="low">저가순</option>
+      <option value="high">고가순</option>
+    </select>
+  </label>
+  <button type="submit">필터 적용</button>
+  {% elif page_type == "human_resources" %}
+  <label>
+    지역
+    <select name="region">
+      <option value="">전체</option>
+      <option value="서울">서울</option>
+      <option value="부산">부산</option>
+    </select>
+  </label>
+  <label>
+    페이
+    <select name="pay">
+      <option value="">전체</option>
+      <option value="low">낮은 순</option>
+      <option value="high">높은 순</option>
+    </select>
+  </label>
+  <label>
+    정렬
+    <select name="sort">
+      <option value="latest">최신순</option>
+      <option value="popular">인기순</option>
+    </select>
+  </label>
+  <button type="submit">필터 적용</button>
+  {% elif page_type == "used_instruments" %}
+  <label>
+    지역
+    <select name="region">
+      <option value="">전체</option>
+      <option value="서울">서울</option>
+      <option value="부산">부산</option>
+    </select>
+  </label>
+  <label>
+    사용 상태
+    <select name="condition">
+      <option value="">전체</option>
+      <option value="new">신품</option>
+      <option value="used">중고</option>
+    </select>
+  </label>
+  <label>
+    가격
+    <select name="price">
+      <option value="">전체</option>
+      <option value="low">저가순</option>
+      <option value="high">고가순</option>
+    </select>
+  </label>
+  <button type="submit">필터 적용</button>
+  {% elif page_type == "community" %}
+  <label>
+    글쓴 사람
+    <select name="author">
+      <option value="">전체</option>
+      <option value="admin">관리자</option>
+      <option value="user">일반 유저</option>
+    </select>
+  </label>
+  <label>
+    정렬
+    <select name="sort">
+      <option value="latest">최신순</option>
+      <option value="likes">좋아요순</option>
+    </select>
+  </label>
+  <button type="submit">필터 적용</button>
+  {% endif %}
+</form>

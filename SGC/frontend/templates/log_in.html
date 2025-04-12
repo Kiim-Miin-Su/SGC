@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}로그인{% endblock %}
+
+{% block content %}
+<!-- 로그인 전용 CSS 로드 -->
+<link rel="stylesheet" href="{% static 'css/log_in.css' %}">
+
+<div class="login-box">
+    <h2>로그인</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">로그인</button>
+    </form>
+
+    {% if form.errors %}
+    <p class="error">아이디 또는 비밀번호가 올바르지 않습니다.</p>
+    {% endif %}
+</div>
+{% endblock %}

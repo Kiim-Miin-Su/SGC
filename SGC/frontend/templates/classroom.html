@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}강의실{% endblock %}
+
+{% block content %}
+<h2>강의실 입장</h2>
+<p>강좌명: {{ lesson.title }}</p>
+<a href="{{ room_url }}" class="btn">FaceTime 입장</a>
+{% endblock %}

@@ -1,0 +1,169 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}SGC{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 style="text-align: center"><a href="{% url 'index' %}">SGC</a></h1>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="{% url 'used_instruments' %}">중고거래</a></li>
+            <li><a href="{% url 'human_resources' %}">구인 구직</a></li>
+            <li><a href="{% url 'community' %}">커뮤니티</a></li>
+            <li><a href="{% url 'lessons' %}">강좌</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'log_out' %}">로그아웃</a></li>
+            <li><a href="{% url 'my_page' %}">마이 페이지</a></li>
+            {% else %}
+            <li><a href="{% url 'log_in' %}">로그인</a></li>
+            <li><a href="{% url 'sign_up' %}">회원가입</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      {% block content %}
+      <!-- 필터 영역 (페이지별로 필터가 달라짐) -->
+      {% if page_type == 'used_instruments' %}
+      <form class="filter-form">
+        <label
+          >지역:
+          <select>
+            <option>전체</option>
+            <option>서울</option>
+            <option>부산</option>
+          </select>
+        </label>
+        <label
+          >사용 상태:
+          <select>
+            <option>전체</option>
+            <option>새상품</option>
+            <option>중고</option>
+          </select>
+        </label>
+        <label
+          >가격:
+          <select>
+            <option>전체</option>
+            <option>10만원 이하</option>
+            <option>10~30만원</option>
+            <option>30만원 이상</option>
+          </select>
+        </label>
+        <button type="submit">검색</button>
+      </form>
+      {% elif page_type == 'community' %}
+      <form class="filter-form">
+        <label
+          >글쓴 사람:
+          <select>
+            <option>전체</option>
+            <option>선생</option>
+            <option>일반</option>
+            <option>기업</option>
+          </select>
+        </label>
+        <label
+          >정렬 기준:
+          <select>
+            <option>최신순</option>
+            <option>조회순</option>
+          </select>
+        </label>
+        <button type="submit">검색</button>
+      </form>
+      {% elif page_type == 'human_resources' %}
+      <form class="filter-form">
+        <label
+          >정렬 기준:
+          <select>
+            <option>최신순</option>
+            <option>시급 높은순</option>
+          </select>
+        </label>
+        <label
+          >지역:
+          <select>
+            <option>전체</option>
+            <option>서울</option>
+            <option>대전</option>
+          </select>
+        </label>
+        <label
+          >페이:
+          <select>
+            <option>전체</option>
+            <option>시급</option>
+            <option>월급</option>
+          </select>
+        </label>
+        <button type="submit">검색</button>
+      </form>
+      {% elif page_type == 'lessons' %}
+      <form class="filter-form">
+        <label
+          >지역:
+          <select>
+            <option>전체</option>
+            <option>서울</option>
+            <option>부산</option>
+          </select>
+        </label>
+        <label
+          >수업 방식:
+          <select>
+            <option>전체</option>
+            <option>온라인</option>
+            <option>오프라인</option>
+          </select>
+        </label>
+        <label
+          >가격:
+          <select>
+            <option>전체</option>
+            <option>무료</option>
+            <option>5만원 이하</option>
+            <option>5만원 이상</option>
+          </select>
+        </label>
+        <button type="submit">검색</button>
+      </form>
+      {% endif %}
+
+      <!-- 페이지 본문 -->
+      {% block data %}
+      <div class="main-content">
+        {% for item in items %}
+        <div class="card">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+          {% if item.price %}
+          <p><strong>{{ item.price }}원</strong></p>
+          {% endif %} {% if item.author %}
+          <p>작성자: {{ item.author }}</p>
+          {% endif %}
+        </div>
+        {% empty %}
+        <p>등록된 항목이 없습니다.</p>
+        {% endfor %}
+      </div>
+      {% endblock %} {% endblock %}
+    </main>
+
+    <footer>
+      <div class="container">
+        <address>수원시 팔달구 고등로 15</address>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}마이페이지{% endblock %}
+
+{% block content %}
+<h2 style="margin-bottom: 2rem;">내 수강 강좌</h2>
+<div class="main-content">
+  {% for enrollment in enrollments %}
+    <div class="card">
+      <h3>{{ enrollment.lesson.title }}</h3>
+      <p>{{ enrollment.lesson.description }}</p>
+      <p><strong>{{ enrollment.lesson.price }}원</strong></p>
+      <p>방식: {{ enrollment.lesson.delivery }} / 지역: {{ enrollment.lesson.region }}</p>
+      <a href="{% url 'enter_classroom' lesson_id=enrollment.lesson.id %}" class="btn">강의실 입장</a>
+    </div>
+  {% empty %}
+    <p>수강 중인 강좌가 없습니다.</p>
+  {% endfor %}
+</div>
+{% endblock %}

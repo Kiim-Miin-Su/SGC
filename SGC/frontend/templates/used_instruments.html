@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}중고거래{% endblock %}
+
+{% block content %}
+  {% with page_type='used_instruments' %}
+    {% include "includes/filter_form.html" %}
+  {% endwith %}
+
+  <ul class="product-list">
+    {% for item in items %}
+    <li>
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.description }}</p>
+      <p><strong>{{ item.price|intcomma }}원</strong></p>
+    </li>
+    {% empty %}
+    <li>등록된 중고 물품이 없습니다.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

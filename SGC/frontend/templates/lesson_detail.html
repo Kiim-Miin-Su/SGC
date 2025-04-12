@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ lesson.title }} 상세 정보{% endblock %}
+
+{% block content %}
+<h2>{{ lesson.title }}</h2>
+<p>{{ lesson.description }}</p>
+<p><strong>{{ lesson.price }}원</strong></p>
+<p>방식: {{ lesson.delivery }}</p>
+<p>지역: {{ lesson.region }}</p>
+
+<form method="post" action="{% url 'enroll_lesson' lesson.id %}">
+  {% csrf_token %}
+  <button type="submit" class="btn">결제하고 수강 신청하기</button>
+</form>
+
+<a href="{% url 'lessons' %}">← 목록으로 돌아가기</a>
+{% endblock %}

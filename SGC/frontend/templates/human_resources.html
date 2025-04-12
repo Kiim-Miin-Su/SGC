@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}구인 구직{% endblock %}
+
+{% block content %}
+  {% with page_type='human_resources' %}
+    {% include "includes/filter_form.html" %}
+  {% endwith %}
+
+  <ul class="job-list">
+    {% for item in items %}
+    <li>
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.description }}</p>
+      <p><strong>{{ item.pay_amount|intcomma }}원</strong> / {{ item.pay_type }}</p>
+    </li>
+    {% empty %}
+    <li>등록된 구인 구직 정보가 없습니다.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
