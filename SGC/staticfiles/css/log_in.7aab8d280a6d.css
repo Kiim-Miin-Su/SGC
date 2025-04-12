@@ -1,0 +1,44 @@
+.login-box {
+    max-width: 360px; /* ✅ 너비 줄이기 */
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    color: #1f2937;
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    padding: 10px;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.login-box button {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #1f2937;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-box button:hover {
+    background-color: #374151;
+}

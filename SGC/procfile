@@ -1,0 +1,1 @@
+web: gunicorn sgc_backend.wsgi:application

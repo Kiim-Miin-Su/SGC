@@ -1,0 +1,219 @@
+/* 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* 전체 배경 및 기본 설정 */
+  body {
+    background: linear-gradient(to bottom, #0d1117, #161b22);
+    color: #c9d1d9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+  .lecture-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: transparent;
+    justify-content: center;
+  }
+  
+  /* 각 강좌 카드 */
+  .lecture-list li {
+    list-style: none;
+    background-color: #1c2128;
+    border: 1px solid #30363d;
+    padding: 1.5rem;
+    border-radius: 12px;
+    flex: 1 1 280px;
+    max-width: 360px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease;
+  }
+  
+  .lecture-list li:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* 강좌 내부 텍스트 스타일 */
+  .lecture-list h3 {
+    color: #f0f6fc;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .lecture-list p {
+    color: #8b949e;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .lecture-list strong {
+    color: #c9d1d9;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  li {
+    list-style: none;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  /* 링크 */
+  a {
+    color: #58a6ff;
+    text-decoration: none;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: #238636;
+    color: white;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #2ea043;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* 메인 콘텐츠 */
+  .main-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .main-nav li {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  /* 카드 스타일 */
+  .card-box,
+  .welcome,
+  .hire-info {
+    background-color: #1c2128;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 2rem;
+    width: calc(33.33% - 1.5rem);
+    min-width: 300px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    flex-grow: 1;
+    transition: transform 0.3s;
+  }
+  
+  .card-box:hover,
+  .welcome:hover,
+  .hire-info:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* 텍스트 */
+  .welcome h2,
+  .hire-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+  
+  .hire-info ol {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .hire-info li {
+    margin-bottom: 1rem;
+  }
+  
+  .hire-info img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+  }
+  
+  /* 슬라이더 */
+  .ad-slider {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 16px;
+    margin-top: 3rem;
+    background-color: #0d1117;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  }
+  
+  .ad-slider .slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .ad-slider .slide {
+    flex: 0 0 100%;
+  }
+  
+  .ad-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* 고정 하단 우측 */
+  .fixed-div {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #238636;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  }
+  
+  .fixed-div a {
+    color: white;
+    display: block;
+    margin-top: 0.5rem;
+  }
+  
+  /* 반응형 */
+  @media (max-width: 992px) {
+    .card-box,
+    .welcome,
+    .hire-info {
+      width: calc(50% - 1rem);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .card-box,
+    .welcome,
+    .hire-info {
+      width: 100%;
+    }
+  
+    body {
+      padding: 1rem;
+    }
+  }
+  
