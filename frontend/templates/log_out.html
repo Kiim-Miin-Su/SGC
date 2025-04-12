@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}로그아웃{% endblock %}
+
+{% block content %}
+<div class="login-box">
+    <h2>로그아웃 되었습니다.</h2>
+    <p>다시 로그인하시겠습니까?</p>
+    <a href="{% url 'log_in' %}"><button>로그인하기</button></a>
+</div>
+{% endblock %}

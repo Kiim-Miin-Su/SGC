@@ -1,0 +1,80 @@
+/* 로그인 및 회원가입 전용 스타일 */
+
+/* 로그인용 */
+.login-box,
+.sign-up-box {
+    max-width: 400px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.login-box h2,
+.sign-up-box h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    color: #1f2937;
+}
+
+.login-box form,
+.sign-up-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"],
+.sign-up-box input[type="text"],
+.sign-up-box input[type="password"],
+.sign-up-box input[type="email"] {
+    padding: 10px;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.login-box button,
+.sign-up-box button {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #1f2937;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-box button:hover,
+.sign-up-box button:hover {
+    background-color: #374151;
+}
+
+.sign-up-box label {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.sign-up-box small {
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.help-text-list {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 0.5rem;
+    padding-left: 1.2rem;
+}
+
+.sign-up-box .errorlist {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    padding: 0;
+}
